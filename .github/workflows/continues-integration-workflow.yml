@@ -6,4 +6,10 @@ jobs:
     name: Build and teest
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v4
+
+    - name: Hello world
+      run: echo 'Hello world'
+      # uses: actions/hello-world-javascript-action@v1.1
+      # with:
+      #   who-to-greet: 'Mona the Octocat'
