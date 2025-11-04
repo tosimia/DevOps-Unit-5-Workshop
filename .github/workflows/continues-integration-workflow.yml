@@ -1,0 +1,9 @@
+name: Continues Integration
+on: [push]
+
+jobs:
+  build:
+    name: Build and teest
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v5
