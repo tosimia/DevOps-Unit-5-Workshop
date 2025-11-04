@@ -13,3 +13,31 @@ jobs:
       uses: actions/hello-world-javascript-action@v1.1
       with:
         who-to-greet: 'Mona the Octocat'
+      
+    #Step 2: run the build command
+    - name: Build
+      run: dotnet build
+
+
+    # Install npm dependencies and build u
+    - name: Install and Build Frontend
+      working-directory:  ./DotnetTemplate.Web
+      run:
+        echo "Installing NPM dependencies..."
+        npm Install
+        echo "building Frontend assets..."
+        npm run build
+    
+    - name: running dotnet test
+      working-directory: ./DotnetTemplate.Web.Tests
+      run: dotnet test
+
+    - name: typescript test
+      working-directory:  ./DotnetTemplate.Web
+      run: npm t
+    
+    # run lint
+
+    - name: formatter
+      working-directory: ./DotnetTemplate.Web.Tests
+      run: npm run lint
